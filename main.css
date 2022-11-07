@@ -1,0 +1,72 @@
+:root {
+    --cell-size: 60px;
+}
+
+body {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    height: 100vh;
+    background: orange;
+}
+
+.button-wrapper {
+    display: flex;
+    justify-content: space-between;
+}
+
+button {
+    padding: 10px;
+    background: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#sp-msg {
+    color: white;
+    text-align: center;
+    font-size: 22px;
+    min-height: 30px;
+}
+
+#matrix-wrapper {
+    display: grid;
+    grid-template-columns: repeat(8, auto);
+}
+
+#matrix-wrapper div {
+    height: var(--cell-size);
+    width: var(--cell-size);
+    border: 1px solid black;
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    background: white;
+    font-size: 16px;
+}
+
+#matrix-wrapper .blocked-cell {
+    background: purple;
+}
+
+#matrix-wrapper .green-background {
+    background: #01FF70;
+}
+
+@media screen and (max-width: 600px) {
+    :root {
+        --cell-size: 50px;
+    }
+}
+
+@media screen and (max-width: 450px) {
+    :root {
+        --cell-size: 30px;
+    }
+
+    #matrix-wrapper div {
+        font-size: 10px;
+    }
+}
