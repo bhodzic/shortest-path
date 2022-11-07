@@ -5,15 +5,14 @@
 body {
     display: grid;
     justify-content: center;
-    align-items: center;
-    margin: 0;
-    height: 100vh;
     background: orange;
 }
 
 .button-wrapper {
     display: flex;
     justify-content: space-between;
+    padding-top: 30px;
+    padding-bottom: 30px;
 }
 
 button {
@@ -29,6 +28,7 @@ button {
     text-align: center;
     font-size: 22px;
     min-height: 30px;
+    padding-top: 30px;
 }
 
 #matrix-wrapper {
