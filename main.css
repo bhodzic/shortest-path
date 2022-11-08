@@ -1,5 +1,6 @@
 :root {
     --cell-size: 60px;
+    --matrix-size: 8;
 }
 
 body {
@@ -33,7 +34,7 @@ button {
 
 #matrix-wrapper {
     display: grid;
-    grid-template-columns: repeat(8, auto);
+    grid-template-columns: repeat(var(--matrix-size), auto);
 }
 
 #matrix-wrapper div {

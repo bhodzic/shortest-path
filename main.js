@@ -99,11 +99,16 @@ function clearTimeouts(timeoutsArray) {
     }
 }
 
-$(document).ready(function () {
-    matrix = generateMatrix();
+function initNewView() {
     clearTimeouts(timeouts);
-    drawMatrix(matrix);
     $('#sp-msg').text('');
+    matrix = generateMatrix();
+    drawMatrix(matrix);
+}
+
+$(document).ready(function () {
+    initNewView();
+
 
     $('#shortest-path-btn').on('click', function () {
         let shortestPathArray = shortestPath(matrix);
@@ -117,10 +122,7 @@ $(document).ready(function () {
     });
 
     $('#load-new-btn').on('click', function () {
-        matrix = generateMatrix();
-        clearTimeouts(timeouts);
-        drawMatrix(matrix);
-        $('#sp-msg').text('');
+        initNewView();
     });
 
 });
