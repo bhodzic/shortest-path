@@ -10,10 +10,12 @@ body {
 }
 
 .button-wrapper {
-    display: flex;
-    justify-content: space-between;
-    padding-top: 30px;
-    padding-bottom: 30px;
+    text-align: center;
+}
+
+#shortest-path-btn {
+    margin-top: 30px;
+    margin-bottom: 30px;
 }
 
 button {
@@ -29,7 +31,8 @@ button {
     text-align: center;
     font-size: 22px;
     min-height: 30px;
-    padding-top: 30px;
+    padding-top: 20px;
+    padding-bottom: 10px;
 }
 
 #matrix-wrapper {
@@ -54,6 +57,10 @@ button {
 
 #matrix-wrapper .green-background {
     background: #01FF70;
+}
+
+.hidden {
+    display: none;
 }
 
 @media screen and (max-width: 600px) {

@@ -97,6 +97,7 @@ function clearTimeouts(timeoutsArray) {
     for (let i = 0; i < timeoutsArray.length; i++) {
         clearTimeout(timeoutsArray[i]);
     }
+    timeouts=[];
 }
 
 function initNewView() {
@@ -111,17 +112,23 @@ $(document).ready(function () {
 
 
     $('#shortest-path-btn').on('click', function () {
-        let shortestPathArray = shortestPath(matrix);
-        let spLengthTxt = shortestPathArray.length ? 'Shortest path length is ' + shortestPathArray.length : 'There is no path';
-        $('#sp-msg').text(spLengthTxt);
-        for (let i = 0; i < shortestPathArray.length; i++) {
+        if (!timeouts.length) {
+            let shortestPathArray = shortestPath(matrix);
+            let spLengthTxt = shortestPathArray.length ? 'Shortest path length is ' + shortestPathArray.length : 'There is no path!!!';
+            for (let i = 0; i < shortestPathArray.length; i++) {
+                timeouts.push(setTimeout(function () {
+                    $(`[data-index=${shortestPathArray[i][0] + '' + shortestPathArray[i][1]}]`).addClass('green-background');
+                }, 300 + i * 500));
+            }
             timeouts.push(setTimeout(function () {
-                $(`[data-index=${shortestPathArray[i][0] + '' + shortestPathArray[i][1]}]`).addClass('green-background')
-            }, 300 + i * 500));
+                $('#sp-msg').text(spLengthTxt);
+                $('#load-new-btn').removeClass('hidden');
+            }, 300 + (shortestPathArray.length - 1) * 500));
         }
     });
 
     $('#load-new-btn').on('click', function () {
+        $('#load-new-btn').addClass('hidden');
         initNewView();
     });
 
